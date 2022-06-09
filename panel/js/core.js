@@ -2006,8 +2006,8 @@ function rewardTimer() {
 
 
 /* Moralis init code */
-const serverUrl = "https://c9w7lgwmwwtb.usemoralis.com:2053/server";
-const appId = "76DpEVsMmMkmhGRcVgSd0Bdy8DWvBSQmex0WtAa8";
+const serverUrl = "https://lbukme4nnkta.usemoralis.com:2053/server";
+const appId = "BiyQ7hfxwtrMUEzR1ShmECLEfqKy9sUnf9jTU5Hm";
 Moralis.start({serverUrl, appId});
 
 let aaaa
