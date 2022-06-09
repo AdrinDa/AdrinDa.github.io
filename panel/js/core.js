@@ -2054,28 +2054,28 @@ function renderMoralisData(data, noattribute) {
 		let txt
 		if (data[0]) {
 			data[0].forEach(el => {
-				txt = `Stake Started: ${(parseInt(el.rawAmount)).toFixed(2) / 1e18} AVC for ${el.duration} days`
+				txt = `Stake Started: ${(parseInt(el.attributes.rawAmount)).toFixed(2) / 1e18} AVC for ${el.attributes.duration} days`
 				dores(el)
 			})
 		}
 	
 		if (data[1]) {
 			data[1].forEach(el => {
-				txt = `Stake Collected: ${(parseInt(el.rawAmount) / 1e18).toFixed(5)} BNB`
+				txt = `Stake Collected: ${(parseInt(el.attributes.rawAmount) / 1e18).toFixed(5)} BNB`
 				dores(el)
 			})
 		}
 	
 		if (data[2]) {
 			data[2].forEach(el => {
-				txt = `Auction Entered:<br> ${parseInt(el.rawAmount) / 1e18} BNB`
+				txt = `Auction Entered:<br> ${parseInt(el.attributes.rawAmount) / 1e18} BNB`
 				dores(el)
 			})
 		}
 	
 		// if (data[3]) {
 		// 	data[3].forEach(el => {
-		// 		txt = `Auction Collected: ${parseInt(el.rawAmount) / 1e18} AVC`
+		// 		txt = `Auction Collected: ${parseInt(el.attributes.rawAmount) / 1e18} AVC`
 		// 		dores(el)
 		// 	})
 		// }
@@ -2084,7 +2084,7 @@ function renderMoralisData(data, noattribute) {
 			data[3].forEach(el => {
 				counter++
 				if (counter < 15) {
-					txt = `${parseInt(el.rawAmount) / 1e18} AVC Stake sell request for ${parseInt(el.price) / 1e18} BNB`
+					txt = `${parseInt(el.attributes.rawAmount) / 1e18} AVC Stake sell request for ${parseInt(el.attributes.price) / 1e18} BNB`
 					dores(el)
 				}
 			})
@@ -2092,17 +2092,17 @@ function renderMoralisData(data, noattribute) {
 	
 		if (data[4]) {
 			data[4].forEach(el => {
-				txt = `${parseInt(el.rawAmount) / 1e18} BNB Loan request for ${parseInt(el.duration)} Days`
+				txt = `${parseInt(el.attributes.rawAmount) / 1e18} BNB Loan request for ${parseInt(el.attributes.duration)} Days`
 				dores(el)
 			})
 		}
 	
 			
 		function dores(el) {
-			let p22 = el.addr.slice(42 - 5)
+			let p22 = el.attributes.addr.slice(42 - 5)
 	
 			$('.recent-events')[0].innerHTML += 
-				`<div id="${parseInt(el.timestamp)}" onclick="window.open('https://bscscan.com/tx/${el.transaction_hash}')" 
+				`<div id="${parseInt(el.attributes.timestamp)}" onclick="window.open('https://bscscan.com/tx/${el.attributes.transaction_hash}')" 
 				style="background-color: #2e8b90;
 				cursor: pointer;
 				margin: 6px;
@@ -2120,7 +2120,7 @@ function renderMoralisData(data, noattribute) {
 			text-align: center;
 			font-weight: 900;
 			font-family: 'Montserrat-m1'
-			">${el.addr.slice(0, 5) + "..." + p22}</div><div style="
+			">${el.attributes.addr.slice(0, 5) + "..." + p22}</div><div style="
 			border-radius: 3px;
 			height: 20px;
 			color: #ffffffb8;
@@ -2137,7 +2137,7 @@ function renderMoralisData(data, noattribute) {
 		margin-right: 3px;
 		/* font-weight: 900; */
 		font-family: 'Montserrat-m1';
-			">${timeSince(parseInt(el.timestamp) * 1000)} ago</div></div>`
+			">${timeSince(parseInt(el.attributes.timestamp) * 1000)} ago</div></div>`
 		}
 	 }
 	// else{
