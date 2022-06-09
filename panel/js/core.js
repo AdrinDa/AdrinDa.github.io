@@ -2013,8 +2013,8 @@ Moralis.start({serverUrl, appId});
 let aaaa
 async function getMoralisData() {
     const data = await Moralis.Cloud.run("getEvents")
-	console.log(data)
-	renderMoralisData(data)
+	aaaa =data
+	renderMoralisData(data, true)
 }
 
 
